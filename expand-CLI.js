@@ -14,7 +14,25 @@ console.log("5. Quit/Exit")
 
 rl.question("Choose an endpoint: ", function(choice) {
         console.log(`${choice}, will trigger a function in theory now`);
-        //put the entry point for officeRND here, preferably as a function, pass in variables where needed
+        switch(choice){
+            case 1:
+                Accounts()
+                break;
+            case 2:
+                Contacts()
+                break;
+            case 3:
+                Memberships()
+                break;
+            case 4:
+                Resources()
+                break;
+            case 5:
+                rl.close();
+                break;
+            default:
+                rl.close();
+        }
         rl.close();
 
 });
@@ -23,3 +41,22 @@ rl.on("close", function() {
     console.log("\nBYE BYE !!!");
     process.exit(0);
 });
+
+
+
+
+function Accounts(){
+    console.log("I'm the accounts function")
+}
+
+function Contacts(){
+    console.log("I'm the contacts function")
+}
+
+function Memberships(){
+    console.log("I'm the Memberships function")
+}
+
+function Resources(){
+    console.log("I'm the Resources or Add-Ons function")
+}
