@@ -5,6 +5,7 @@ const rl = readline.createInterface({
   prompt: 'OHAI> '
 });
 
+
 rl.prompt();
 
 rl.on('line', (line) => {
