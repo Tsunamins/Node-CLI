@@ -5,6 +5,8 @@ const rl = readline.createInterface({
     prompt: 'Endpoint> '
 });
 
+const { ExternalContactsFunction } = require('./external-function')
+
 
 console.log("Which endpoint would you like to sync?")
 console.log("1. Accounts/Teams")
@@ -23,7 +25,7 @@ rl.on('line', (line) => {
                 console.log('triggered case 1')
                 return Accounts()
             case '2':
-                return Contacts()
+                return ExternalContactsFunction()
             case '3':
                 return Memberships()
             case '4':
@@ -49,9 +51,9 @@ function Accounts(){
     console.log("I'm the accounts function")
 }
 
-function Contacts(){
-    console.log("I'm the contacts function")
-}
+// function Contacts(){
+//     console.log("I'm the contacts function")
+// }
 
 function Memberships(){
     console.log("I'm the Memberships function")
