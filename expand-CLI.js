@@ -1,7 +1,8 @@
 const readline = require("readline");
 const rl = readline.createInterface({
     input: process.stdin,
-    output: process.stdout
+    output: process.stdout,
+    prompt: 'Endpoint> '
 });
 
 
@@ -12,35 +13,34 @@ console.log("3. Memberships")
 console.log("4. Resources/Add-Ons")
 console.log("5. Quit/Exit")
 
-rl.question("Choose an endpoint: ", function(choice) {
-        console.log(`${choice}, will trigger a function in theory now`);
-        switch(choice){
-            case 1:
-                Accounts()
-                break;
-            case 2:
-                Contacts()
-                break;
-            case 3:
-                Memberships()
-                break;
-            case 4:
-                Resources()
-                break;
-            case 5:
+rl.prompt();
+
+//prop put this in a function and add to other functions
+
+rl.on('line', (line) => {
+        switch(line){
+            case '1':
+                console.log('triggered case 1')
+                return Accounts()
+            case '2':
+                return Contacts()
+            case '3':
+                return Memberships()
+            case '4':
+                return Resources()
+            case '5':
                 rl.close();
                 break;
             default:
                 rl.close();
         }
-        rl.close();
+        rl.prompt();
+    
 
-});
-
-rl.on("close", function() {
-    console.log("\nBYE BYE !!!");
+}).on('close', () => {
+    console.log('Have a great day!');
     process.exit(0);
-});
+  });
 
 
 
